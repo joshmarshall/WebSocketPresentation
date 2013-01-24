@@ -1,0 +1,6 @@
+argparse==1.2.1
+gevent==0.13.8
+gevent-websocket==0.3.6
+greenlet==0.4.0
+-e git://github.com/joshmarshall/wsgi_helpers.git@0c203bc4dc43de26457b59b347aac8e04fb93e9b#egg=wsgi_helpers-dev
+wsgiref==0.1.2

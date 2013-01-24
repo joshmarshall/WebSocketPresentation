@@ -1,0 +1,15 @@
+.tag {
+  background: #4774fa;
+  border-radius: 3px;
+  padding: 3px;
+  color: #FFF;
+  position: absolute;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.ping {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}

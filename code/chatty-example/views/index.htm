@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEBSOCKETZ!</title>
+    <link href="/static/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="/static/main.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand">Chatty Demo</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <div class="alert alert-error connection-status">You are not connected.</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span9">
+          <ul class="chatbox"></ul>
+        </div>
+        <div class="span3">
+          <ul class="users"></ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span3">
+          <div class="input-prepend input-append">
+            <span class="add-on">@</span>
+            <input class="span2 control disabled" id="username" type="text" placeholder="Username"/>
+            <button class="btn control disabled" id="username-send" type="button">Send</button>
+          </div>
+        </div>
+        <div class="span9">
+          <div class="input-append">
+            <input class="span8 control disabled" id="message" type="text" placeholder="Your message here..."/>
+            <button class="btn control disabled" id="message-send" type="button">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="/static/jquery.min.js" type="text/javascript"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/static/websocket.js" type="text/javascript"></script>
+  </body>
+</html>
