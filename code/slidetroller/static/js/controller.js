@@ -9,7 +9,7 @@
     logger.value = message + "\n" + logger.value;
   };
 
-  var socket = new WebSocket("ws://192.168.0.11:8080/websocket");
+  var socket = new WebSocket("ws://" + window.location.host + "/websocket");
   socket.onopen = function() {
     log("WE ARE OPEN.");
     socket.send(JSON.stringify({

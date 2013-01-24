@@ -14,7 +14,7 @@ $(function() {
 
   Tweets.prototype.connect = function() {
     var self = this;
-    this._socket = new WebSocket("ws://localhost:8080/websocket");
+    this._socket = new WebSocket("ws://" + window.location.host + "/websocket");
     this._socket.onopen = function() {
       console.log("OPENED!");
       self.open();
@@ -43,7 +43,7 @@ $(function() {
   };
 
   Tweets.prototype.close = function() {
-
+    setTimeout(function() { this.connect(); }, 5000);
   };
 
   Tweets.prototype.ping = function(coordinates, place) {

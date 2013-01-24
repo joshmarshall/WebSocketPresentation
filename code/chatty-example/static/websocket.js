@@ -36,7 +36,7 @@ Chatty.prototype.setup_websocket = function() {
   var self = this;
 
   // Creating new websocket instance connected locally
-  this._websocket = new WebSocket("ws://localhost:8080/websocket");
+  this._websocket = new WebSocket(this._url);
 
   // Setting up behavior for every data packet
   this._websocket.onmessage = function(evt) {
@@ -138,7 +138,7 @@ Chatty.prototype.message_behavior = function(data) {
 
 $(function() {
 
-  var chatty = new Chatty("ws://localhost:8080/websocket");
+  var chatty = new Chatty("ws://" + window.location.host + "/websocket");
   chatty.setup_websocket();
 
 });

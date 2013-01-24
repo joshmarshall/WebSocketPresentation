@@ -1,3 +1,4 @@
+import os
 from tornado.ioloop import IOLoop
 from tornado.web import Application, RequestHandler
 from tornado.websocket import WebSocketHandler
@@ -38,6 +39,7 @@ if __name__ == "__main__":
         ("/", IndexHandler),
         ("/websocket", SocketHandler),
     ], template_path="views", static_path="static", debug=True)
-    app.listen(8080)
-    print "SERVING ON 8080"
+    port = int(os.environ.get("PORT", 8082))
+    app.listen(port)
+    print "SERVING ON %s" % (port)
     IOLoop.instance().start()

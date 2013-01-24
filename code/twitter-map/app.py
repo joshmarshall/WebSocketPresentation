@@ -37,7 +37,11 @@ def monitor_twitter():
             response.status_code, response.readline()))
 
     while True:
-        line = response.readline()
+        try:
+            line = response.readline()
+        except Exception as exception:
+            print "TWITTER FAILED!\n%s" % (exception)
+            os.exit(1)
         if line:
             # Send the line to each subscriber if it's not empty
             for subscriber in _SUBSCRIBERS[:]:
@@ -79,6 +83,8 @@ def authorization_header():
 
 
 if __name__ == "__main__":
-    server = WSGIServer(("", 8080), router, handler_class=WebSocketHandler)
+    port = int(os.environ.get("PORT", 8081))
+    print "SERVING ON PORT %d" % (port)
+    server = WSGIServer(("", port), router, handler_class=WebSocketHandler)
     gevent.spawn(monitor_twitter)
     server.serve_forever()

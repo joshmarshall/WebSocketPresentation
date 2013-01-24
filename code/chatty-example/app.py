@@ -1,3 +1,4 @@
+import os
 import wsgi_helpers
 
 from gevent.pywsgi import WSGIServer
@@ -40,6 +41,7 @@ router = wsgi_helpers.Router([
 
 
 if __name__ == "__main__":
-    print "SERVING ON PORT 8080"
-    server = WSGIServer(("", 8080), router, handler_class=WebSocketHandler)
+    port = int(os.environ.get("PORT", 8080))
+    print "SERVING ON PORT %d" % (port)
+    server = WSGIServer(("", port), router, handler_class=WebSocketHandler)
     server.serve_forever()
