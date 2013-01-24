@@ -2,7 +2,9 @@
 
 
   var open = function() {
-    var socket = new WebSocket("ws://localhost:8080/websocket");
+    var host = (window.location.protocol == "file:") ? "localhost:8082" : window.location.host;
+    console.log("USING HOST: " + host);
+    var socket = new WebSocket("ws://" + host + "/websocket");
     socket.onopen = function() {
       console.log("CONNECTED!");
     };
